@@ -1,0 +1,162 @@
+/* You can add global styles to this file, and also import other style files */
+
+/*!
+ * Start Bootstrap - Stylish Portfolio v5.0.6 (https://startbootstrap.com/template-overviews/stylish-portfolio)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-stylish-portfolio/blob/master/LICENSE)
+ */
+
+body, html {
+    width: 100%;
+    height: 100%
+}
+
+body {
+    font-family: 'Source Sans Pro';
+   
+    background-color: #111 !important
+}
+
+/*shows the stars side by side, centered, and in reverse order than the HMTL*/
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+  }
+  
+  /*hides the radio buttons*/
+  .rating > input{ display:none;}
+  
+  /*style the empty stars, sets position:relative as base for pseudo-elements*/
+  .rating > label {
+    position: relative;
+    width: 0.9em;
+    font-size: 5vw;
+    color: #FFD700;
+    cursor: pointer;
+  }
+  
+  /* sets filled star pseudo-elements */
+  .rating > label::before{ 
+    content: "\2605";
+    position: absolute;
+    opacity: 0;
+  }
+  /*overlays a filled start character to the hovered element and all previous siblings*/
+  .rating > label:hover:before,
+  .rating > label:hover ~ label:before {
+    opacity: 1 !important;
+  }
+  
+  /*overlays a filled start character on the selected element and all previous siblings*/
+  .rating > input:checked ~ label:before{
+    opacity:1;
+  }
+  
+  /*when an element is selected and pointer re-enters the rating container, selected rate and siblings get semi transparent, as reminder of current selection*/
+  .rating:hover > input:checked ~ label:before{ opacity: 0.4; }
+  
+  
+  
+  #spin {
+    margin: 160px auto;
+    position: relative;
+    width: 40px;height:40px;
+    border-radius: 20px;
+    background: #00acbf;
+    background: -moz-linear-gradient(top, #eee 0%, #eee 25%, #111 25%,  #111 75%, #eee 75%, #eee 99%);
+    background: -webkit-linear-gradient(top, #eee 0%,#eee 25%,#111 25%,#111  75%,#eee 75%,#eee 99%);
+    animation-name: rotate; 
+    animation-duration: 1s; 
+    animation-iteration-count: infinite;
+    transition-timing-function: linear;
+  }
+  
+  #spin:after {
+    background:#111;
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    margin:0 auto;
+    top:7px;
+    width:26px;
+    height:26px;
+    border-radius:13px;
+  }
+  
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+  
+    to { 
+      transform: rotate(360deg);
+    }
+  }
+  /* Visit https://nicolaskadis.info/projects/pure-css-flip-cards-using-bootstrap-4-and-css-grid-no-js for an explanation */
+
+/* for demo purposes */
+.card {
+    margin: 10px 10px;
+  }
+  
+  /* Flip Cards CSS */
+  .card-container {
+    display: grid;
+    perspective: 700px;
+  }
+  
+  .card-flip {
+    display: grid;
+    grid-template: 1fr / 1fr;
+    grid-template-areas: "frontAndBack";
+    transform-style: preserve-3d;
+    transition: all 0.7s ease;
+  }
+  
+  .card-flip div {
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+  }
+  
+  .front {
+    grid-area: frontAndBack;
+  }
+  
+  .back {
+    grid-area: frontAndBack;
+    transform: rotateY(-180deg);
+  }
+  
+  .card-container:hover .card-flip {
+    transform: rotateY(180deg);
+  }
+  
+  body {padding:60px;}
+
+  .toggle-switch input[type=checkbox] {display:none}
+  .toggle-switch label {cursor:pointer;}
+  .toggle-switch label .toggle-track {
+    display:block;height:40px;width:80px;background:#eee;border-radius:20px;
+    position:relative;
+    margin-bottom:15px;border:1px solid #ccc;
+  }
+  
+  .toggle-switch .toggle-track:before{
+    content:'';
+    display:inline-block;height:40px;width:40px;background:red;
+    border-radius:20px;
+    position:absolute;
+    top:0;
+    right:0;
+    transition:right .2s ease-in;
+  }
+  
+  .toggle-switch input[type="checkbox"]:checked + label .toggle-track:before{
+    background:green;
+    right:40px;
+  }  
+  
+  
+  
